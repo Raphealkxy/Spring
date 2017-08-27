@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+ <bean id="bean3Factory" class="com.timmy.entity.Bean3Factory" ></bean>
+  <bean id="bean3" factory-bean="bean3Factory" factory-method="getBean3" scope="prototype"></bean>
+   <bean id="propertyDemo" class="com.timmy.entity.PropertyDemo1">
+   <constructor-arg name="username" value="xiaoma"></constructor-arg>
+   </bean>
+  <bean id="book" class="com.timmy.entity.Book" >
+  
+  <property name="bookname" value="易经经"></property>
+  </bean>
+  
+   <bean id="userDao" class="com.timmy.entity.UserDao" ></bean>
+      <bean id="userService" class="com.timmy.entity.UserService">
+      <property name="userDao" ref="userDao"></property>
+      
+      </bean>
+   
+     <bean id="person" class="com.timmy.entity.Person" >
+     <property name="list">
+     <list>
+     <value>小王</value>
+          <value>小名</value>
+          <value>小宋</value>
+     </list>
+     </property>
+     
+      <property name="arr">
+     <list>
+     <value>小王</value>
+          <value>小名</value>
+          <value>小宋</value>
+     </list>
+     
+     
+     
+     </property>
+     
+     	<property name="map">
+			<map>
+				<entry key="aa" value="lucy"></entry>
+				<entry key="bb" value="mary"></entry>
+				<entry key="cc" value="tom"></entry>
+			</map>
+		</property>
+     <property name="properties">
+			<props>
+				<prop key="driverclass">com.mysql.jdbc.Driver</prop>
+				<prop key="username">root</prop>
+			</props>
+		</property>
+     
+     </bean>
+  
+ 
+ </beans>
